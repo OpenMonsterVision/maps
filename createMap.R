@@ -15,5 +15,9 @@ philCrimeMapGG <- ggmap(philCrimeMap)
 #Plot Murder points on map
 philCrimeMapGG + 
   geom_point(data = philCrimeData[grep(pattern = "Homicide",philCrimeData$Text_General_Code),], aes(x = Lon, y = Lat), color = "black", size = 3) +
-  geom_point(data = philCrimeData[grep(pattern = "Homicide",philCrimeData$Text_General_Code),], aes(x = Lon, y = Lat), color = "red", size = 2)
+  geom_point(data = philCrimeData[grep(pattern = "Homicide",philCrimeData$Text_General_Code),], aes(x = Lon, y = Lat), color = "red", size = 2) +
+#Add the rapey bits
+  geom_point(data = philCrimeData[which( philCrimeData$Text_General_Code == 'Rape' ),], aes(x = Lon, y = Lat), color = "black", size = 3) +
+  geom_point(data = philCrimeData[which( philCrimeData$Text_General_Code == 'Rape' ),], aes(x = Lon, y = Lat), color = "violet", size = 2)
+
 
