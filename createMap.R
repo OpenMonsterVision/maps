@@ -40,12 +40,14 @@ pngf <- philCrimeMapGG +
   geom_point(show.legend = TRUE,data = me, aes(x = Lon, y = Lat, color = Crime), size = 2)
 #The Legend is created Automagically, By utilizing the Crimes and Me Tables data Structure
 #The colors for Murders and Rapes are automagically assigned, Except the Me dot which is specified
+#Add Labels
 final <- pngf +
   xlab(label = "Longitude") +
   ylab(label = "Latitude") +
   ggtitle("Philly",subtitle = "Criminal Activity") +
   theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text( hjust = 0.5))
 
-png(filename = 'Philly.png',width=1280, height=1280)
+#Save as PNG
+png(filename = 'Philly.png', width=1000, height=800)
 print(final)
 dev.off()
