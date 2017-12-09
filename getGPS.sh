@@ -14,7 +14,7 @@
 #        AUTHOR: Bsdpunk, Dusty Carver
 #  ORGANIZATION: 
 #       CREATED: 12/08/2017 19:25
-#      REVISION:  2
+#      REVISION:  3
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
@@ -28,5 +28,5 @@ do
 done
 APPEND=$(printf $APPEND | gsed 's/,//g')
 
-curl "https://maps.googleapis.com/maps/api/geocode/json?address=$APPEND&key$KEY"
+curl -sKL "https://maps.googleapis.com/maps/api/geocode/json?address=$APPEND&key$KEY" | egrep 'lat|lng' | head -n2
 
